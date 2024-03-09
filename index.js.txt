@@ -1,0 +1,23 @@
+const fs = require('fs');
+
+fs.readFile('README.md', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  
+  const indexJS = `
+    // Index.js file for project
+    console.log("Welcome to our project!");
+    console.log("Please refer to the README file for instructions on how to set up and use the project.");
+  `;
+  
+  fs.writeFile('index.js', indexJS, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    
+    console.log("index.js file has been successfully created!");
+  });
+});
